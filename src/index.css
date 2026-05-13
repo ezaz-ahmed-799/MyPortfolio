@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  /* Core Backgrounds */
+  --color-bg-main: #000000;
+  --color-bg-surface: #111111;
+  --color-bg-surface-hover: #1a1a1a;
+  
+  /* The Neon Accent */
+  --color-neon-primary: #ccff00; 
+  
+  /* Text Colors */
+  --color-text-bright: #ffffff;
+  --color-text-muted: #a1a1aa;
+}
