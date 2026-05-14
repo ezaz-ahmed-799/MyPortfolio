@@ -11,7 +11,7 @@ const projects = [
 
     stack: ["Python", "CNN", "Deep Learning", "Computer Vision", "TensorFlow"],
 
-    image: "public/har.jpg",
+    image: "/har.jpg",
   },
 
   {
@@ -26,7 +26,7 @@ const projects = [
 
     stack: ["React", "Spring Boot", "JWT", "PostgreSQL", "REST APIs"],
 
-    image: "public/hams.jpg",
+    image: "/hams.jpg",
   },
 
   {
@@ -47,7 +47,7 @@ const projects = [
       "Neural Networks",
     ],
 
-    image: "public/sf.jpg",
+    image: "/sf.jpg",
   },
 
   {
@@ -62,7 +62,7 @@ const projects = [
 
     stack: ["React", "Node.js", "MongoDB", "Express", "REST APIs"],
 
-    image: "public/sp.jpg",
+    image: "/sp.jpg",
   },
 ];
 

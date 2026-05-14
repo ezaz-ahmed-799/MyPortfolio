@@ -6,7 +6,7 @@ const interests = [
     description:
       "Active badminton and cricket player with experience representing college teams in competitive environments that strengthened focus, adaptability, and teamwork.",
 
-    image: "public/badminton.jpg",
+    image: "/badminton.jpg",
   },
 
   {
@@ -16,7 +16,7 @@ const interests = [
     description:
       "Passionate about high-difficulty action RPGs including Sekiro, Elden Ring, Dark Souls, and Ghost of Tsushima — experiences that sharpen patience, decision-making, and analytical thinking.",
 
-    image: "public/got.jpg",
+    image: "/got.jpg",
   },
 
   {
@@ -26,7 +26,7 @@ const interests = [
     description:
       "Interested in story-rich anime and manga focused on sports, action, and unconventional creative structures that inspire perspective, pacing, and immersive world-building.",
 
-    image: "public/op.jpg",
+    image: "/op.jpg",
   },
 ];
 
