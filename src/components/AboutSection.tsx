@@ -1,6 +1,6 @@
 const stats = [
   {
-    number: "3+",
+    number: "3",
     label: "Research Papers",
   },
   {
@@ -8,7 +8,7 @@ const stats = [
     label: "Technologies",
   },
   {
-    number: "2+",
+    number: "1+",
     label: "Years Experience",
   },
   {

@@ -1,61 +1,102 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Updated to use paths for React Router instead of # anchors
+  // Scroll Navigation Links
   const navLinks = [
-    { name: 'About', path: '/about' },
-    { name: 'Experience', path: '/experience' },
-    { name: 'Projects', path: '/projects' },
+    { name: "About", id: "about" },
+    { name: "Experience", id: "experience" },
+    { name: "Projects", id: "projects" },
+    { name: "Research", id: "research" },
+    { name: "Education", id: "education" },
+    { name: "Contact", id: "contact" },
   ];
 
+  // Smooth Scroll Function
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    setIsOpen(false);
+  };
+
   return (
-    <nav className="fixed w-full h-[10vh] top-0 z-50 bg-bg-main/90 backdrop-blur-md border-b border-bg-surface">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          
+    <nav className="navbar fixed top-0 z-50 h-[10vh] w-full border-b border-bg-surface bg-bg-main/90 backdrop-blur-md">
+
+      <div className="navbar-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+        <div className="navbar-wrapper flex h-20 items-center justify-between">
+
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="text-3xl font-extrabold text-text-bright tracking-tighter">
+          <div className="navbar-logo-wrapper flex-shrink-0">
+
+            <button
+              onClick={() => handleScroll("hero")}
+              className="navbar-logo text-3xl font-extrabold tracking-tighter text-text-bright"
+            >
               Ezaz<span className="text-neon-primary">.</span>
-            </Link>
+            </button>
           </div>
-          
+
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
+          <div className="navbar-desktop hidden md:block">
+
+            <div className="navbar-links ml-10 flex items-center space-x-8">
+
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.name}
-                  to={link.path}
-                  className="text-text-muted hover:text-neon-primary transition-colors duration-300 text-sm font-medium"
+                  onClick={() => handleScroll(link.id)}
+                  className="navbar-link text-sm font-medium text-text-muted transition-colors duration-300 hover:text-neon-primary"
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
-              {/* Glowing Neon Button */}
-              <a
-                href="#contact"
-                className="border border-neon-primary text-neon-primary hover:bg-neon-primary hover:text-bg-main hover:shadow-[0_0_15px_#ccff00] px-5 py-2 rounded-md text-sm font-bold transition-all duration-300"
+
+              {/* Contact Button */}
+              <button
+                onClick={() => handleScroll("contact")}
+                className="navbar-contact-btn rounded-md border border-neon-primary px-5 py-2 text-sm font-bold text-neon-primary transition-all duration-300 hover:bg-neon-primary hover:text-bg-main hover:shadow-[0_0_15px_#ccff00]"
               >
                 Contact Me
-              </a>
+              </button>
             </div>
           </div>
 
-          {/* Mobile Menu Hamburger Button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile Hamburger */}
+          <div className="navbar-mobile-toggle flex items-center md:hidden">
+
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-text-muted hover:text-neon-primary focus:outline-none transition-colors"
+              className="navbar-hamburger text-text-muted transition-colors hover:text-neon-primary focus:outline-none"
             >
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
                 {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
               </svg>
             </button>
@@ -63,27 +104,29 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-bg-surface border-b border-bg-surface-hover">
-          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+        <div className="navbar-mobile-menu border-b border-bg-surface-hover bg-bg-surface md:hidden">
+
+          <div className="navbar-mobile-links space-y-1 px-2 pb-4 pt-2 sm:px-3">
+
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.name}
-                to={link.path}
-                className="text-text-muted hover:text-neon-primary block px-3 py-2 rounded-md text-base font-medium transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => handleScroll(link.id)}
+                className="navbar-mobile-link block w-full rounded-md px-3 py-2 text-left text-base font-medium text-text-muted transition-colors hover:text-neon-primary"
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
-            <a
-              href="#contact"
-              className="block mt-4 text-center border border-neon-primary text-neon-primary hover:bg-neon-primary hover:text-bg-main hover:shadow-[0_0_15px_#ccff00] px-5 py-2 rounded-md text-base font-bold transition-all duration-300"
-              onClick={() => setIsOpen(false)}
+
+            {/* Mobile Contact Button */}
+            <button
+              onClick={() => handleScroll("contact")}
+              className="navbar-mobile-contact-btn mt-4 block w-full rounded-md border border-neon-primary px-5 py-2 text-center text-base font-bold text-neon-primary transition-all duration-300 hover:bg-neon-primary hover:text-bg-main hover:shadow-[0_0_15px_#ccff00]"
             >
               Contact Me
-            </a>
+            </button>
           </div>
         </div>
       )}

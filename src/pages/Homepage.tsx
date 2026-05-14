@@ -3,6 +3,10 @@ import Marquee from "../components/Marquee.tsx";
 import AboutSection from "../components/AboutSection.tsx";
 import ExperienceSection from "../components/ExperienceSection.tsx";
 import ProjectsSection from "../components/ProjectsSection.tsx";
+import ResearchSection from "../components/ResearchSection.tsx";
+import EducationSection from "../components/EducationSection.tsx";
+import BeyondCodeSection from "../components/BeyondCodeSection.tsx";
+import ContactSection from "../components/ContactSection.tsx";
 
 const HomePage = () => {
   return (
@@ -137,37 +141,59 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-{/* RIGHT IMAGE SECTION */}
-<div className="hero-image-section relative hidden md:flex md:w-1/2 items-end justify-center overflow-hidden">
+            {/* RIGHT IMAGE SECTION */}
+            <div className="hero-image-section relative hidden md:flex md:w-1/2 items-end justify-center overflow-hidden">
+              {/* Main Glow */}
+              <div className="hero-image-glow absolute bottom-0 z-0 h-[320px] w-[320px] rounded-full bg-neon-primary/20 blur-[120px]" />
 
-  {/* Main Glow */}
-  <div className="hero-image-glow absolute bottom-0 z-0 h-[320px] w-[320px] rounded-full bg-neon-primary/20 blur-[120px]" />
+              {/* HI I'M -> Behind Image */}
+              <div className="hero-bg-top-text absolute top-24 z-0 select-none leading-none">
+                <h2 className="hero-bg-hi text-[7rem] font-black uppercase tracking-[-0.08em] text-white/[0.04] lg:text-[9rem]">
+                  Helllo
+                </h2>
+              </div>
 
-  {/* HI I'M -> Behind Image */}
-  <div className="hero-bg-top-text absolute top-24 z-0 select-none leading-none">
-    <h2 className="hero-bg-hi text-[7rem] font-black uppercase tracking-[-0.08em] text-white/[0.04] lg:text-[9rem]">
-      Helllo 
-    </h2>
-  </div>
-
-  {/* Image Wrapper */}
-  <div className="hero-image-wrapper relative z-10 flex h-full w-full items-end justify-center overflow-hidden">
-
-    <img
-      src="/ezaz.png"
-      alt="Ezaz Ahmed"
-      className="hero-image h-[520px] w-auto object-cover object-top drop-shadow-[0_0_40px_rgba(204,255,0,0.16)]"
-    />
-  </div>
-</div>
+              {/* Image Wrapper */}
+              <div className="hero-image-wrapper relative z-10 flex h-full w-full items-end justify-center overflow-hidden">
+                <img
+                  src="/ezaz.png"
+                  alt="Ezaz Ahmed"
+                  className="hero-image h-[520px] w-auto object-cover object-top drop-shadow-[0_0_40px_rgba(204,255,0,0.16)]"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div>
         <Marquee />
-        <AboutSection />
-        <ExperienceSection />
-        <ProjectsSection />
+        <section id="about">
+          <AboutSection />
+        </section>
+
+        <section id="experience">
+          <ExperienceSection />
+        </section>
+
+        <section id="projects">
+          <ProjectsSection />
+        </section>
+
+        <section id="research">
+          <ResearchSection />
+        </section>
+
+        <section id="education">
+          <EducationSection />
+        </section>
+
+        <section id="beyond">
+          <BeyondCodeSection />
+        </section>
+
+        <section id="contact">
+          <ContactSection />
+        </section>
       </div>
     </>
   );
