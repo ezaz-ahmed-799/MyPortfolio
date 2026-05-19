@@ -40,7 +40,7 @@ const BeyondCodeSection = () => {
       <div className="beyond-container relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
 
         {/* Heading */}
-        <div className="beyond-heading-wrapper mb-24">
+        <div className="beyond-heading-wrapper mb-24" data-animate="fade-up">
 
           <p className="beyond-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
             Beyond Code
@@ -59,6 +59,8 @@ const BeyondCodeSection = () => {
           {interests.map((item, index) => (
             <div
               key={index}
+              data-animate="zoom-in"
+              style={{ transitionDelay: `${index * 120}ms` }}
               className="
                 beyond-card
                 group

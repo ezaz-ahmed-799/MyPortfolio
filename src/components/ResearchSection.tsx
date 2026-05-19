@@ -102,7 +102,7 @@ const ResearchSection = () => {
 
       <div className="research-container relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
         {/* Heading */}
-        <div className="research-heading-wrapper mb-24">
+        <div className="research-heading-wrapper mb-24" data-animate="fade-up">
           <p className="research-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
             Research Publications
           </p>
@@ -119,6 +119,8 @@ const ResearchSection = () => {
           {publications.map((paper, index) => (
             <div
               key={index}
+              data-animate="fade-up"
+              style={{ transitionDelay: `${index * 100}ms` }}
               className="
                 research-card
                 group
@@ -226,6 +228,8 @@ const ResearchSection = () => {
           ].map((item, index) => (
             <div
               key={index}
+              data-animate="zoom-in"
+              style={{ transitionDelay: `${index * 70}ms` }}
               className="research-metric-card rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl"
             >
               <h3 className="research-metric-value text-3xl font-black text-neon-primary">

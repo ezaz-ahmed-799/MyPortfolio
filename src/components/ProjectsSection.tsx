@@ -12,6 +12,8 @@ const projects = [
     stack: ["Python", "CNN", "Deep Learning", "Computer Vision", "TensorFlow"],
 
     image: "/har.jpg",
+
+    github: "https://github.com/ezaz-ahmed-799/Thief-detection",
   },
 
   {
@@ -27,6 +29,9 @@ const projects = [
     stack: ["React", "Spring Boot", "JWT", "PostgreSQL", "REST APIs"],
 
     image: "/hams.jpg",
+
+    github:
+      "https://github.com/ezaz-ahmed-799/Hospital-Management-System---React-Springboot",
   },
 
   {
@@ -48,6 +53,8 @@ const projects = [
     ],
 
     image: "/sf.jpg",
+
+    github: "https://github.com/ezaz-ahmed-799/Solar-Flare-prediction",
   },
 
   {
@@ -63,6 +70,8 @@ const projects = [
     stack: ["React", "Node.js", "MongoDB", "Express", "REST APIs"],
 
     image: "/sp.jpg",
+
+    github: "https://github.com/ezaz-ahmed-799/Student-Platform",
   },
 ];
 
@@ -74,7 +83,7 @@ const ProjectsSection = () => {
 
       <div className="projects-container relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
         {/* Heading */}
-        <div className="projects-heading-wrapper mb-24">
+        <div className="projects-heading-wrapper mb-24" data-animate="fade-up">
           <p className="projects-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
             Featured Projects
           </p>
@@ -91,6 +100,7 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <div
               key={index}
+              data-animate={index % 2 === 0 ? "fade-right" : "fade-left"}
               className={`project-item grid items-center gap-14 lg:grid-cols-2 ${
                 index % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
@@ -127,13 +137,23 @@ const ProjectsSection = () => {
 
                 {/* Buttons */}
                 <div className="project-actions mt-10 flex gap-4">
-                  <button className="project-primary-btn rounded-full bg-neon-primary px-6 py-3 font-semibold text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)]">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-primary-btn rounded-full bg-neon-primary px-6 py-3 font-semibold text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)]"
+                  >
                     View Project
-                  </button>
+                  </a>
 
-                  <button className="project-secondary-btn rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-neon-primary/30 hover:bg-white/[0.05]">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-secondary-btn rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-neon-primary/30 hover:bg-white/[0.05]"
+                  >
                     GitHub
-                  </button>
+                  </a>
                 </div>
               </div>
 

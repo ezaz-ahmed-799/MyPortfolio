@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Marquee from "../components/Marquee.tsx";
 import AboutSection from "../components/AboutSection.tsx";
 import ExperienceSection from "../components/ExperienceSection.tsx";
@@ -9,11 +8,18 @@ import BeyondCodeSection from "../components/BeyondCodeSection.tsx";
 import ContactSection from "../components/ContactSection.tsx";
 
 const HomePage = () => {
+  const resumeUrl = `${import.meta.env.BASE_URL}Ezaz_Ahmed_Resume.docx`;
+
   return (
     <>
-      // The container takes up the full screen height and centers content
-      vertically
-      <div className="hero-section min-h-screen bg-bg-main pt-12 flex items-center">
+      <div
+        id="hero"
+        className="hero-section relative min-h-screen overflow-hidden bg-bg-main pt-12 flex items-center"
+      >
+        <div className="hero-ambient hero-ambient-one" />
+        <div className="hero-ambient hero-ambient-two" />
+        <div className="hero-grid-overlay" />
+
         <div className="hero-container max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-12">
           {/* Main Layout */}
           <div className="hero-layout flex flex-col-reverse items-center justify-between gap-14 md:flex-row md:gap-10">
@@ -98,8 +104,8 @@ const HomePage = () => {
 
                 {/* CTA Buttons */}
                 <div className="hero-actions flex flex-wrap gap-4">
-                  <Link
-                    to="/projects"
+                  <a
+                    href="#projects"
                     className="
                 hero-primary-btn
                 inline-flex items-center justify-center
@@ -115,11 +121,11 @@ const HomePage = () => {
               "
                   >
                     View My Work
-                  </Link>
+                  </a>
 
                   <a
-                    href="/resume.pdf"
-                    target="_blank"
+                    href={resumeUrl}
+                    download="Ezaz_Ahmed_Resume.docx"
                     className="
                 hero-secondary-btn
                 inline-flex items-center justify-center

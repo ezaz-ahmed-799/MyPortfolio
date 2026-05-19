@@ -27,7 +27,7 @@ const AboutSection = () => {
       <div className="about-container relative z-10 mx-auto flex max-w-7xl flex-col gap-20 px-6 md:flex-row md:items-center md:gap-16 lg:px-12">
 
         {/* LEFT SIDE */}
-        <div className="about-left flex-1">
+        <div className="about-left flex-1" data-animate="fade-up">
 
           <p className="about-label mb-2 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
             About Me
@@ -39,7 +39,7 @@ const AboutSection = () => {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="about-right flex-1 h-[90vh] pt-4">
+        <div className="about-right flex-1 h-[90vh] pt-4" data-animate="fade-left">
 
           <p className="about-description max-w-xl text-lg leading-relaxed text-white/70">
             I'm a Full Stack Developer and AI Researcher from Andhra Pradesh, India,
@@ -54,6 +54,8 @@ const AboutSection = () => {
             {stats.map((stat, index) => (
               <div
                 key={index}
+                data-animate="zoom-in"
+                style={{ transitionDelay: `${index * 90}ms` }}
                 className="
                   about-stat-card
                   group

@@ -34,7 +34,7 @@ const ContactSection = () => {
       <div className="contact-container relative z-10 mx-auto grid max-w-7xl gap-20 px-6 lg:grid-cols-2 lg:px-12">
 
         {/* LEFT SIDE */}
-        <div className="contact-left">
+        <div className="contact-left" data-animate="fade-right">
 
           <p className="contact-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
             Contact
@@ -66,7 +66,7 @@ const ContactSection = () => {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="contact-right">
+        <div className="contact-right" data-animate="fade-left">
 
           {/* Terminal Card */}
           <div className="contact-terminal group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
@@ -97,6 +97,8 @@ const ContactSection = () => {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
+                    data-animate="fade-up"
+                    style={{ transitionDelay: `${index * 80}ms` }}
                     className="contact-terminal-link group/link flex items-start justify-between border-b border-white/5 pb-6 transition-all duration-300 hover:border-neon-primary/20"
                   >
 

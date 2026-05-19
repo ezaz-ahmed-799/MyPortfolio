@@ -30,7 +30,7 @@ const EducationSection = () => {
       <div className="education-container relative z-10 mx-auto grid max-w-7xl gap-20 px-6 lg:grid-cols-2 lg:px-12">
 
         {/* LEFT SIDE */}
-        <div className="education-left">
+        <div className="education-left" data-animate="fade-right">
 
           <p className="education-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
             Education
@@ -99,7 +99,7 @@ const EducationSection = () => {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="education-right">
+        <div className="education-right" data-animate="fade-left">
 
           <p className="education-right-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
             Recognition
@@ -117,6 +117,8 @@ const EducationSection = () => {
             {achievements.map((item, index) => (
               <div
                 key={index}
+                data-animate="zoom-in"
+                style={{ transitionDelay: `${index * 80}ms` }}
                 className="
                   education-achievement-card
                   group

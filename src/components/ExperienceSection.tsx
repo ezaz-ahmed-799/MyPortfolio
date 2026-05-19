@@ -44,7 +44,7 @@ const ExperienceSection = () => {
 
       <div className="experience-container relative z-10 mx-auto max-w-6xl px-6 lg:px-12">
         {/* Heading */}
-        <div className="experience-heading-wrapper mb-24">
+        <div className="experience-heading-wrapper mb-24" data-animate="fade-up">
           <p className="experience-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
             Experience
           </p>
@@ -64,6 +64,8 @@ const ExperienceSection = () => {
             {experiences.map((item, index) => (
               <div
                 key={index}
+                data-animate="fade-left"
+                style={{ transitionDelay: `${index * 110}ms` }}
                 className="experience-item relative flex flex-col gap-8 md:flex-row md:gap-16"
               >
                 {/* LEFT YEAR */}
@@ -99,7 +101,7 @@ const ExperienceSection = () => {
                   "
                 >
                   {/* Hover Glow */}
-                  <div className="experience-card-glow absolute inset-0 bg-gradient-to-br from-neon-primary/[0.03] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="experience-card-glow right-to-left absolute inset-0 bg-gradient-to-br from-neon-primary/[0.03] via-transparent to-transparent  transition-opacity duration-500 group-hover:opacity-100" />
 
                   <div className="experience-card-content relative z-10">
                     <p className="experience-duration mb-3 text-sm uppercase tracking-[0.25em] text-neon-primary/70">
