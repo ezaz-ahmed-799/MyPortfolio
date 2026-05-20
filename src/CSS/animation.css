@@ -6,6 +6,28 @@ body {
   background: #000;
 }
 
+img,
+svg {
+  max-width: 100%;
+}
+
+.about-heading,
+.experience-heading,
+.projects-heading,
+.project-title,
+.research-heading,
+.research-title,
+.education-heading,
+.education-right-heading,
+.beyond-heading,
+.contact-heading,
+.website-works-heading,
+.website-work-title,
+.gig-title,
+.hero-name {
+  overflow-wrap: anywhere;
+}
+
 .app-shell {
   min-height: 100vh;
   background:
@@ -278,6 +300,8 @@ body {
 .education-achievement-card,
 .education-orcid-card,
 .beyond-card,
+.website-work-card,
+.gig-card,
 .contact-terminal {
   transform-style: preserve-3d;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
@@ -290,6 +314,8 @@ body {
 .education-card-secondary::after,
 .education-achievement-card::after,
 .beyond-card::after,
+.website-work-card::after,
+.gig-card::after,
 .contact-terminal::after,
 .project-preview-card::after {
   position: absolute;
@@ -309,6 +335,8 @@ body {
 .education-card-secondary:hover::after,
 .education-achievement-card:hover::after,
 .beyond-card:hover::after,
+.website-work-card:hover::after,
+.gig-card:hover::after,
 .contact-terminal:hover::after,
 .project-preview-card:hover::after {
   opacity: 1;
@@ -322,6 +350,8 @@ body {
 .education-card-secondary:hover,
 .education-achievement-card:hover,
 .education-orcid-card:hover,
+.website-work-card:hover,
+.gig-card:hover,
 .contact-terminal:hover {
   box-shadow: 0 28px 90px rgba(204, 255, 0, 0.08);
 }
@@ -361,12 +391,16 @@ body {
 }
 
 .project-stack-pill,
-.research-tag {
+.research-tag,
+.website-work-tag,
+.gig-service-pill {
   transition: transform 250ms ease, border-color 250ms ease, color 250ms ease, background-color 250ms ease;
 }
 
 .project-stack-pill:hover,
-.research-tag:hover {
+.research-tag:hover,
+.website-work-tag:hover,
+.gig-service-pill:hover {
   color: #ccff00;
   border-color: rgba(204, 255, 0, 0.34);
   background-color: rgba(204, 255, 0, 0.055);
@@ -651,6 +685,21 @@ body {
   .hero-ambient {
     width: 15rem;
     height: 15rem;
+  }
+
+  .hero-social-sidebar {
+    width: fit-content;
+  }
+
+  .contact-terminal {
+    animation: none;
+  }
+}
+
+@media (hover: none) {
+  .project-preview-wrapper:hover .project-preview-card,
+  .project-item:nth-child(even) .project-preview-wrapper:hover .project-preview-card {
+    transform: none;
   }
 }
 

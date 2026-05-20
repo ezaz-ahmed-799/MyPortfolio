@@ -77,18 +77,18 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section className="projects-section relative overflow-hidden bg-black py-32">
+    <section className="projects-section relative overflow-hidden bg-black py-20 md:py-32">
       {/* Background Glow */}
-      <div className="projects-bg-glow absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[160px]" />
+      <div className="projects-bg-glow absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[120px] md:h-[700px] md:w-[700px] md:blur-[160px]" />
 
-      <div className="projects-container relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="projects-container relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-12">
         {/* Heading */}
-        <div className="projects-heading-wrapper mb-24" data-animate="fade-up">
-          <p className="projects-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
+        <div className="projects-heading-wrapper mb-14 md:mb-24" data-animate="fade-up">
+          <p className="projects-label mb-4 text-xs uppercase tracking-[0.24em] text-neon-primary/70 sm:text-sm sm:tracking-[0.3em] md:mb-5">
             Featured Projects
           </p>
 
-          <h2 className="projects-heading text-5xl font-black leading-none tracking-[-0.05em] text-white md:text-7xl">
+          <h2 className="projects-heading text-3xl font-black leading-none tracking-[-0.04em] text-white sm:text-5xl md:text-7xl">
             Selected
             <br />
             Work
@@ -96,39 +96,39 @@ const ProjectsSection = () => {
         </div>
 
         {/* Projects */}
-        <div className="projects-list flex flex-col gap-32">
+        <div className="projects-list flex flex-col gap-20 md:gap-32">
           {projects.map((project, index) => (
             <div
               key={index}
               data-animate={index % 2 === 0 ? "fade-right" : "fade-left"}
-              className={`project-item grid items-center gap-14 lg:grid-cols-2 ${
+              className={`project-item grid items-center gap-8 md:gap-14 lg:grid-cols-2 ${
                 index % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
               {/* LEFT CONTENT */}
               <div className="project-content">
-                <p className="project-number mb-4 text-7xl font-black tracking-[-0.08em] text-white/10">
+                <p className="project-number mb-3 text-5xl font-black tracking-[-0.08em] text-white/10 md:mb-4 md:text-7xl">
                   {project.number}
                 </p>
 
-                <p className="project-category mb-4 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
+                <p className="project-category mb-3 text-xs uppercase tracking-[0.22em] text-neon-primary/70 sm:text-sm sm:tracking-[0.3em] md:mb-4">
                   {project.category}
                 </p>
 
-                <h3 className="project-title text-4xl font-black tracking-[-0.05em] text-white md:text-5xl">
+                <h3 className="project-title text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl md:text-5xl">
                   {project.title}
                 </h3>
 
-                <p className="project-description mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+                <p className="project-description mt-5 max-w-xl text-base leading-relaxed text-white/70 md:mt-6 md:text-lg">
                   {project.description}
                 </p>
 
                 {/* Stack */}
-                <div className="project-stack mt-8 flex flex-wrap gap-3">
+                <div className="project-stack mt-7 flex flex-wrap gap-2.5 md:mt-8 md:gap-3">
                   {project.stack.map((tech, techIndex) => (
                     <div
                       key={techIndex}
-                      className="project-stack-pill rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-white/70 backdrop-blur-xl"
+                      className="project-stack-pill rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-white/70 backdrop-blur-xl sm:px-4 sm:py-2 sm:text-sm"
                     >
                       {tech}
                     </div>
@@ -136,12 +136,12 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Buttons */}
-                <div className="project-actions mt-10 flex gap-4">
+                <div className="project-actions mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 md:mt-10">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="project-primary-btn rounded-full bg-neon-primary px-6 py-3 font-semibold text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)]"
+                    className="project-primary-btn inline-flex w-full justify-center rounded-full bg-neon-primary px-6 py-3 font-semibold text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)] sm:w-auto"
                   >
                     View Project
                   </a>
@@ -150,7 +150,7 @@ const ProjectsSection = () => {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="project-secondary-btn rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-neon-primary/30 hover:bg-white/[0.05]"
+                    className="project-secondary-btn inline-flex w-full justify-center rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 font-semibold text-white transition-all duration-300 hover:border-neon-primary/30 hover:bg-white/[0.05] sm:w-auto"
                   >
                     GitHub
                   </a>
@@ -167,7 +167,7 @@ const ProjectsSection = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="project-preview-image h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="project-preview-image h-[240px] w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-[320px] lg:h-[420px]"
                   />
 
                   {/* Overlay */}

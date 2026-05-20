@@ -96,18 +96,18 @@ const publications = [
 
 const ResearchSection = () => {
   return (
-    <section className="research-section relative overflow-hidden bg-black py-32">
+    <section className="research-section relative overflow-hidden bg-black py-20 md:py-32">
       {/* Background Glow */}
-      <div className="research-bg-glow absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[160px]" />
+      <div className="research-bg-glow absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[120px] md:h-[700px] md:w-[700px] md:blur-[160px]" />
 
-      <div className="research-container relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="research-container relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-12">
         {/* Heading */}
-        <div className="research-heading-wrapper mb-24" data-animate="fade-up">
-          <p className="research-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
+        <div className="research-heading-wrapper mb-14 md:mb-24" data-animate="fade-up">
+          <p className="research-label mb-4 text-xs uppercase tracking-[0.24em] text-neon-primary/70 sm:text-sm sm:tracking-[0.3em] md:mb-5">
             Research Publications
           </p>
 
-          <h2 className="research-heading text-5xl font-black leading-none tracking-[-0.05em] text-white md:text-7xl">
+          <h2 className="research-heading text-3xl font-black leading-none tracking-[-0.04em] text-white sm:text-5xl md:text-7xl">
             Published
             <br />
             Research
@@ -115,7 +115,7 @@ const ResearchSection = () => {
         </div>
 
         {/* Research Cards */}
-        <div className="research-list flex flex-col gap-14">
+        <div className="research-list flex flex-col gap-8 md:gap-14">
           {publications.map((paper, index) => (
             <div
               key={index}
@@ -126,11 +126,11 @@ const ResearchSection = () => {
                 group
                 relative
                 overflow-hidden
-                rounded-[2rem]
+                rounded-2xl md:rounded-[2rem]
                 border
                 border-white/10
                 bg-white/[0.03]
-                p-10
+                p-5 sm:p-7 md:p-10
                 backdrop-blur-xl
                 transition-all
                 duration-500
@@ -145,31 +145,31 @@ const ResearchSection = () => {
                 {/* Top Row */}
                 <div className="research-top-row flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="research-main-content">
-                    <p className="research-number mb-5 text-7xl font-black tracking-[-0.08em] text-white/10">
+                    <p className="research-number mb-4 text-5xl font-black tracking-[-0.08em] text-white/10 md:mb-5 md:text-7xl">
                       {paper.number}
                     </p>
 
-                    <p className="research-domain mb-4 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
+                    <p className="research-domain mb-3 text-xs uppercase tracking-[0.22em] text-neon-primary/70 sm:text-sm sm:tracking-[0.3em] md:mb-4">
                       {paper.domain}
                     </p>
 
-                    <h3 className="research-title max-w-4xl text-3xl font-black leading-tight tracking-[-0.04em] text-white md:text-5xl">
+                    <h3 className="research-title max-w-4xl text-2xl font-black leading-tight tracking-[-0.03em] text-white sm:text-3xl md:text-5xl">
                       {paper.title}
                     </h3>
 
-                    <p className="research-venue mt-6 text-lg text-white/60">
+                    <p className="research-venue mt-5 break-words text-base text-white/60 md:mt-6 md:text-lg">
                       {paper.venue}
                     </p>
                   </div>
 
                   {/* Metadata */}
-                  <div className="research-metadata flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-xl">
+                  <div className="research-metadata flex min-w-0 flex-col gap-4 rounded-2xl border border-white/10 bg-black/30 p-5 backdrop-blur-xl sm:p-6 lg:max-w-xs">
                     <div>
                       <p className="research-meta-label text-xs uppercase tracking-[0.25em] text-white/40">
                         DOI
                       </p>
 
-                      <p className="research-meta-value mt-2 text-sm text-neon-primary">
+                      <p className="research-meta-value mt-2 break-all text-sm text-neon-primary">
                         {paper.doi}
                       </p>
                     </div>
@@ -179,7 +179,7 @@ const ResearchSection = () => {
                         Scopus EID
                       </p>
 
-                      <p className="research-meta-value mt-2 text-sm text-white/70">
+                      <p className="research-meta-value mt-2 break-all text-sm text-white/70">
                         {paper.eid}
                       </p>
                     </div>
@@ -187,17 +187,17 @@ const ResearchSection = () => {
                 </div>
 
                 {/* Description */}
-                <p className="research-description mt-10 max-w-4xl text-lg leading-relaxed text-white/70">
+                <p className="research-description mt-8 max-w-4xl text-base leading-relaxed text-white/70 md:mt-10 md:text-lg">
                   {paper.description}
                 </p>
 
                 {/* Findings */}
-                <div className="research-findings mt-8 rounded-2xl border border-neon-primary/20 bg-neon-primary/[0.03] p-6">
+                <div className="research-findings mt-7 rounded-2xl border border-neon-primary/20 bg-neon-primary/[0.03] p-5 sm:p-6 md:mt-8">
                   <p className="research-findings-label mb-3 text-xs uppercase tracking-[0.3em] text-neon-primary/70">
                     Key Findings
                   </p>
 
-                  <p className="research-findings-text text-lg leading-relaxed text-white/80">
+                  <p className="research-findings-text text-base leading-relaxed text-white/80 md:text-lg">
                     {paper.findings}
                   </p>
                 </div>
@@ -207,7 +207,7 @@ const ResearchSection = () => {
                   {paper.tags.map((tag, tagIndex) => (
                     <div
                       key={tagIndex}
-                      className="research-tag rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-white/70"
+                      className="research-tag rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-white/70 sm:px-4 sm:py-2 sm:text-sm"
                     >
                       {tag}
                     </div>
@@ -219,7 +219,7 @@ const ResearchSection = () => {
         </div>
 
         {/* Bottom Metrics */}
-        <div className="research-metrics-grid mt-20 grid gap-6 md:grid-cols-4">
+        <div className="research-metrics-grid mt-12 grid gap-4 sm:grid-cols-2 md:mt-20 md:grid-cols-4 md:gap-6">
           {[
             ["2", "Scopus Indexed Papers"],
             ["1", "Verified Citation"],
