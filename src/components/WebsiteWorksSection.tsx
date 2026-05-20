@@ -1,8 +1,10 @@
+import { type FormEvent, useState } from "react";
+
 const websiteWorks = [
   {
-    title: "Interviewskills.css",
+    title: "Interviewskills.in",
     category: "CSS Website Design",
-    status: "Screen recording coming soon",
+    status: "Screen recording added",
     description:
       "A custom CSS-driven website design project focused on clean layout, sharp visual hierarchy, responsive structure, and polished frontend presentation.",
     tags: ["CSS", "Responsive Design", "Website UI", "Frontend Polish"],
@@ -20,6 +22,48 @@ const gigServices = [
 ];
 
 const WebsiteWorksSection = () => {
+  const [isGigFormOpen, setIsGigFormOpen] = useState(false);
+
+  const handleGigSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "Not provided").trim();
+    const email = String(formData.get("email") || "Not provided").trim();
+    const projectType = String(
+      formData.get("projectType") || "Not provided"
+    ).trim();
+    const budget = String(formData.get("budget") || "Not provided").trim();
+    const timeline = String(formData.get("timeline") || "Not provided").trim();
+    const details = String(formData.get("details") || "Not provided").trim();
+
+    const subject = `Website Gig Inquiry from ${name || "Portfolio Visitor"}`;
+    const body = [
+      "Hi Ezaz,",
+      "",
+      "I am interested in hiring you for a website/frontend gig.",
+      "",
+      `Name: ${name || "Not provided"}`,
+      `Email: ${email || "Not provided"}`,
+      `Project Type: ${projectType || "Not provided"}`,
+      `Budget: ${budget || "Not provided"}`,
+      `Timeline: ${timeline || "Not provided"}`,
+      "",
+      "Project Details:",
+      details || "Not provided",
+    ].join("\n");
+
+    const gmailUrl = new URL("https://mail.google.com/mail/");
+    gmailUrl.searchParams.set("view", "cm");
+    gmailUrl.searchParams.set("fs", "1");
+    gmailUrl.searchParams.set("to", "ezazahmedmd555@gmail.com");
+    gmailUrl.searchParams.set("su", subject);
+    gmailUrl.searchParams.set("body", body);
+
+    window.open(gmailUrl.toString(), "_blank", "noopener,noreferrer");
+    setIsGigFormOpen(false);
+  };
+
   return (
     <section className="website-works-section relative overflow-hidden bg-black py-20 md:py-32">
       <div className="website-works-bg-glow absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[120px] md:h-[700px] md:w-[700px] md:blur-[170px]" />
@@ -35,7 +79,6 @@ const WebsiteWorksSection = () => {
 
           <h2 className="website-works-heading text-3xl font-black leading-none tracking-[-0.04em] text-white sm:text-5xl md:text-7xl">
             Design Work
-            
           </h2>
 
           <p className="website-works-intro mt-7 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
@@ -168,16 +211,142 @@ const WebsiteWorksSection = () => {
                 ))}
               </div>
 
-              <a
-                href="mailto:ezazahmedmd555@gmail.com?subject=Website%20Gig%20Inquiry"
+              <button
+                type="button"
+                onClick={() => setIsGigFormOpen(true)}
                 className="gig-primary-btn mt-9 inline-flex w-full items-center justify-center rounded-full bg-neon-primary px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] text-black transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-[0_0_30px_rgba(204,255,0,0.35)]"
               >
                 Hire Me For A Gig
-              </a>
+              </button>
             </div>
           </aside>
         </div>
       </div>
+
+      {isGigFormOpen && (
+        <div
+          className="gig-modal fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-6 backdrop-blur-xl"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="gig-modal-title"
+        >
+          <div className="gig-modal-card relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-[#080808] p-5 shadow-[0_30px_120px_rgba(0,0,0,0.65)] sm:p-7 md:rounded-[2rem] md:p-8">
+            <button
+              type="button"
+              onClick={() => setIsGigFormOpen(false)}
+              className="absolute right-5 top-5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-sm text-white/60 transition-colors hover:border-neon-primary/30 hover:text-neon-primary"
+              aria-label="Close gig form"
+            >
+              Close
+            </button>
+
+            <p className="mb-4 pr-20 text-xs uppercase tracking-[0.24em] text-neon-primary/70 sm:text-sm sm:tracking-[0.3em]">
+              Gig Inquiry
+            </p>
+
+            <h3
+              id="gig-modal-title"
+              className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl"
+            >
+              Tell me about your website idea
+            </h3>
+
+            <p className="mt-4 text-base leading-relaxed text-white/65">
+              Answer a few quick questions and I will open Gmail with everything
+              prefilled for you.
+            </p>
+
+            <form onSubmit={handleGigSubmit} className="mt-8 grid gap-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="grid gap-2 text-sm font-semibold text-white/75">
+                  Your name
+                  <input
+                    name="name"
+                    required
+                    className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none transition-colors placeholder:text-white/30 focus:border-neon-primary/40"
+                    placeholder="Your name"
+                  />
+                </label>
+
+                <label className="grid gap-2 text-sm font-semibold text-white/75">
+                  Your email
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none transition-colors placeholder:text-white/30 focus:border-neon-primary/40"
+                    placeholder="you@example.com"
+                  />
+                </label>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-3">
+                <label className="grid gap-2 text-sm font-semibold text-white/75">
+                  Project type
+                  <select
+                    name="projectType"
+                    className="rounded-xl border border-white/10 bg-[#101010] px-4 py-3 text-white outline-none transition-colors focus:border-neon-primary/40"
+                    defaultValue="Portfolio website"
+                  >
+                    <option>Portfolio website</option>
+                    <option>Landing page</option>
+                    <option>Website redesign</option>
+                    <option>Responsive fix</option>
+                    <option>CSS animation</option>
+                    <option>React frontend page</option>
+                  </select>
+                </label>
+
+                <label className="grid gap-2 text-sm font-semibold text-white/75">
+                  Budget
+                  <input
+                    name="budget"
+                    className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none transition-colors placeholder:text-white/30 focus:border-neon-primary/40"
+                    placeholder="e.g. $100"
+                  />
+                </label>
+
+                <label className="grid gap-2 text-sm font-semibold text-white/75">
+                  Timeline
+                  <input
+                    name="timeline"
+                    className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none transition-colors placeholder:text-white/30 focus:border-neon-primary/40"
+                    placeholder="e.g. 1 week"
+                  />
+                </label>
+              </div>
+
+              <label className="grid gap-2 text-sm font-semibold text-white/75">
+                What do you need built?
+                <textarea
+                  name="details"
+                  required
+                  rows={5}
+                  className="resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none transition-colors placeholder:text-white/30 focus:border-neon-primary/40"
+                  placeholder="Tell me about the website, pages, style, deadline, and any links/references."
+                />
+              </label>
+
+              <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-neon-primary px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] text-black transition-all duration-300 hover:bg-white sm:w-auto"
+                >
+                  Open In Gmail
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsGigFormOpen(false)}
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-neon-primary/30 hover:text-neon-primary sm:w-auto"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
