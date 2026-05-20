@@ -32,21 +32,21 @@ const interests = [
 
 const BeyondCodeSection = () => {
   return (
-    <section className="beyond-section relative overflow-hidden bg-black py-32">
+    <section className="beyond-section relative overflow-hidden bg-black py-20 md:py-32">
 
       {/* Background Glow */}
-      <div className="beyond-bg-glow absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[170px]" />
+      <div className="beyond-bg-glow absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[120px] md:h-[700px] md:w-[700px] md:blur-[170px]" />
 
-      <div className="beyond-container relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="beyond-container relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-12">
 
         {/* Heading */}
-        <div className="beyond-heading-wrapper mb-24" data-animate="fade-up">
+        <div className="beyond-heading-wrapper mb-14 md:mb-24" data-animate="fade-up">
 
-          <p className="beyond-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
+          <p className="beyond-label mb-4 text-xs uppercase tracking-[0.24em] text-neon-primary/70 sm:text-sm sm:tracking-[0.3em] md:mb-5">
             Beyond Code
           </p>
 
-          <h2 className="beyond-heading text-5xl font-black leading-none tracking-[-0.05em] text-white md:text-7xl">
+          <h2 className="beyond-heading text-3xl font-black leading-none tracking-[-0.04em] text-white sm:text-5xl md:text-7xl">
             Outside
             <br />
             The Terminal
@@ -54,7 +54,7 @@ const BeyondCodeSection = () => {
         </div>
 
         {/* Cards */}
-        <div className="beyond-grid grid gap-8 lg:grid-cols-3">
+        <div className="beyond-grid grid gap-6 md:gap-8 lg:grid-cols-3">
 
           {interests.map((item, index) => (
             <div
@@ -66,7 +66,7 @@ const BeyondCodeSection = () => {
                 group
                 relative
                 overflow-hidden
-                rounded-[2rem]
+                rounded-2xl md:rounded-[2rem]
                 border
                 border-white/10
                 bg-white/[0.03]
@@ -78,7 +78,7 @@ const BeyondCodeSection = () => {
             >
 
               {/* Background Image */}
-              <div className="beyond-image-wrapper relative h-[520px] overflow-hidden">
+              <div className="beyond-image-wrapper relative h-[380px] overflow-hidden sm:h-[460px] lg:h-[520px]">
 
                 <img
                   src={item.image}
@@ -91,17 +91,17 @@ const BeyondCodeSection = () => {
               </div>
 
               {/* Content */}
-              <div className="beyond-content absolute inset-0 flex flex-col justify-end p-8">
+              <div className="beyond-content absolute inset-0 flex flex-col justify-end p-5 sm:p-8">
 
-                <p className="beyond-subtitle mb-4 text-xs uppercase tracking-[0.3em] text-neon-primary/70">
+                <p className="beyond-subtitle mb-3 text-xs uppercase tracking-[0.2em] text-neon-primary/70 sm:mb-4 sm:tracking-[0.3em]">
                   {item.subtitle}
                 </p>
 
-                <h3 className="beyond-title text-4xl font-black tracking-[-0.05em] text-white">
+                <h3 className="beyond-title text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
                   {item.title}
                 </h3>
 
-                <p className="beyond-description mt-5 text-base leading-relaxed text-white/70">
+                <p className="beyond-description mt-4 text-sm leading-relaxed text-white/70 sm:mt-5 sm:text-base">
                   {item.description}
                 </p>
               </div>

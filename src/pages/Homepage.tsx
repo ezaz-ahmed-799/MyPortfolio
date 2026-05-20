@@ -5,6 +5,7 @@ import ProjectsSection from "../components/ProjectsSection.tsx";
 import ResearchSection from "../components/ResearchSection.tsx";
 import EducationSection from "../components/EducationSection.tsx";
 import BeyondCodeSection from "../components/BeyondCodeSection.tsx";
+import WebsiteWorksSection from "../components/WebsiteWorksSection.tsx";
 import ContactSection from "../components/ContactSection.tsx";
 
 const HomePage = () => {
@@ -14,19 +15,19 @@ const HomePage = () => {
     <>
       <div
         id="hero"
-        className="hero-section relative min-h-screen overflow-hidden bg-bg-main pt-12 flex items-center"
+        className="hero-section relative flex min-h-[100svh] items-center overflow-hidden bg-bg-main pb-16 pt-24 md:pb-0 md:pt-12"
       >
         <div className="hero-ambient hero-ambient-one" />
         <div className="hero-ambient hero-ambient-two" />
         <div className="hero-grid-overlay" />
 
-        <div className="hero-container max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-12">
+        <div className="hero-container mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
           {/* Main Layout */}
-          <div className="hero-layout flex flex-col-reverse items-center justify-between gap-14 md:flex-row md:gap-10">
+          <div className="hero-layout flex flex-col-reverse items-center justify-between gap-10 md:flex-row md:gap-10">
             {/* LEFT CONTENT */}
-            <div className="hero-content-wrapper flex w-full flex-row gap-6 md:w-1/2 md:gap-10">
+            <div className="hero-content-wrapper flex w-full flex-col gap-6 sm:flex-row md:w-1/2 md:gap-10">
               {/* SOCIAL SIDEBAR */}
-              <div className="hero-social-sidebar flex flex-col gap-6 border-r border-white/10 pr-4 pt-2">
+              <div className="hero-social-sidebar flex flex-row gap-6 border-b border-white/10 pb-4 pt-2 sm:flex-col sm:border-b-0 sm:border-r sm:pb-0 sm:pr-4">
                 {/* LinkedIn */}
                 <a
                   href="#"
@@ -79,36 +80,36 @@ const HomePage = () => {
               {/* HERO TEXT CONTENT */}
               <div className="hero-text-content flex flex-col justify-center">
                 {/* Intro Label */}
-                <p className="hero-intro-label mb-4 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
+                <p className="hero-intro-label mb-4 text-xs uppercase tracking-[0.22em] text-neon-primary/70 sm:text-sm sm:tracking-[0.3em]">
                   Full Stack Engineer & AI Researcher
                 </p>
 
                 {/* Heading */}
-                <h2 className="hero-heading mb-2 text-4xl font-bold leading-tight text-text-bright md:text-4xl">
+                <h2 className="hero-heading mb-2 text-3xl font-bold leading-tight text-text-bright sm:text-4xl">
                   Engineering
                   <br />
                   Intelligent Systems
                 </h2>
 
                 {/* Name */}
-                <h1 className="hero-name mb-6 text-5xl font-extrabold tracking-tight text-neon-primary md:text-7xl">
+                <h1 className="hero-name mb-6 break-words text-4xl font-extrabold tracking-tight text-neon-primary sm:text-5xl md:text-7xl">
                   Ezaz Ahmed.
                 </h1>
 
                 {/* Description */}
-                <p className="hero-description mb-10 max-w-xl text-base leading-relaxed text-text-muted md:text-lg">
+                <p className="hero-description mb-8 max-w-xl text-sm leading-relaxed text-text-muted sm:text-base md:mb-10 md:text-lg">
                   Full Stack Developer specializing in MERN Stack, Java Spring
                   Boot, and AI-driven systems with research experience in Deep
                   Learning, Cloud Security, and Intelligent Architectures.
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="hero-actions flex flex-wrap gap-4">
+                <div className="hero-actions flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap">
                   <a
                     href="#projects"
                     className="
                 hero-primary-btn
-                inline-flex items-center justify-center
+                inline-flex w-full items-center justify-center sm:w-auto
                 rounded-sm
                 bg-neon-primary
                 px-8 py-3
@@ -128,7 +129,7 @@ const HomePage = () => {
                     download="Ezaz_Ahmed_Resume.docx"
                     className="
                 hero-secondary-btn
-                inline-flex items-center justify-center
+                inline-flex w-full items-center justify-center sm:w-auto
                 rounded-sm
                 border border-white/10
                 bg-white/[0.02]
@@ -150,11 +151,11 @@ const HomePage = () => {
             {/* RIGHT IMAGE SECTION */}
             <div className="hero-image-section relative hidden md:flex md:w-1/2 items-end justify-center overflow-hidden">
               {/* Main Glow */}
-              <div className="hero-image-glow absolute bottom-0 z-0 h-[320px] w-[320px] rounded-full bg-neon-primary/20 blur-[120px]" />
+              <div className="hero-image-glow absolute bottom-0 z-0 h-[260px] w-[260px] rounded-full bg-neon-primary/20 blur-[100px] lg:h-[320px] lg:w-[320px] lg:blur-[120px]" />
 
               {/* HI I'M -> Behind Image */}
               <div className="hero-bg-top-text absolute top-24 z-0 select-none leading-none">
-                <h2 className="hero-bg-hi text-[7rem] font-black uppercase tracking-[-0.08em] text-white/[0.04] lg:text-[9rem]">
+                <h2 className="hero-bg-hi text-[5rem] font-black uppercase tracking-[-0.08em] text-white/[0.04] lg:text-[9rem]">
                   Helllo
                 </h2>
               </div>
@@ -164,7 +165,7 @@ const HomePage = () => {
                 <img
                   src="/ezaz.png"
                   alt="Ezaz Ahmed"
-                  className="hero-image h-[520px] w-auto object-cover object-top drop-shadow-[0_0_40px_rgba(204,255,0,0.16)]"
+                  className="hero-image h-[420px] w-auto object-cover object-top drop-shadow-[0_0_40px_rgba(204,255,0,0.16)] lg:h-[520px]"
                 />
               </div>
             </div>
@@ -195,6 +196,10 @@ const HomePage = () => {
 
         <section id="beyond">
           <BeyondCodeSection />
+        </section>
+
+        <section id="website-works">
+          <WebsiteWorksSection />
         </section>
 
         <section id="contact">

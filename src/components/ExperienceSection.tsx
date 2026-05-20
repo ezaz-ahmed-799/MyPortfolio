@@ -38,18 +38,18 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section className="experience-section relative overflow-hidden bg-black py-32">
+    <section className="experience-section relative overflow-hidden bg-black py-20 md:py-32">
       {/* Background Glow */}
-      <div className="experience-bg-glow absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[150px]" />
+      <div className="experience-bg-glow absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-primary/5 blur-[120px] md:h-[600px] md:w-[600px] md:blur-[150px]" />
 
-      <div className="experience-container relative z-10 mx-auto max-w-6xl px-6 lg:px-12">
+      <div className="experience-container relative z-10 mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
         {/* Heading */}
-        <div className="experience-heading-wrapper mb-24" data-animate="fade-up">
-          <p className="experience-label mb-5 text-sm uppercase tracking-[0.3em] text-neon-primary/70">
+        <div className="experience-heading-wrapper mb-14 md:mb-24" data-animate="fade-up">
+          <p className="experience-label mb-4 text-xs uppercase tracking-[0.24em] text-neon-primary/70 sm:text-sm sm:tracking-[0.3em] md:mb-5">
             Experience
           </p>
 
-          <h2 className="experience-heading text-5xl font-black leading-none tracking-[-0.05em] text-white md:text-7xl">
+          <h2 className="experience-heading text-3xl font-black leading-none tracking-[-0.04em] text-white sm:text-5xl md:text-7xl">
             Career Timeline
           </h2>
         </div>
@@ -60,17 +60,17 @@ const ExperienceSection = () => {
           <div className="experience-line absolute left-[120px] top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-neon-primary/40 to-transparent md:block" />
 
           {/* Timeline Items */}
-          <div className="experience-items flex flex-col gap-24">
+          <div className="experience-items flex flex-col gap-10 md:gap-24">
             {experiences.map((item, index) => (
               <div
                 key={index}
                 data-animate="fade-left"
                 style={{ transitionDelay: `${index * 110}ms` }}
-                className="experience-item relative flex flex-col gap-8 md:flex-row md:gap-16"
+                className="experience-item relative flex flex-col gap-4 md:flex-row md:gap-16"
               >
                 {/* LEFT YEAR */}
                 <div className="experience-year-wrapper md:w-[120px] flex-shrink-0">
-                  <h3 className="experience-year sticky top-32 text-5xl font-black tracking-[-0.05em] text-white/20">
+                  <h3 className="experience-year text-3xl font-black tracking-[-0.05em] text-white/20 md:sticky md:top-32 md:text-5xl">
                     {item.year}
                   </h3>
                 </div>
@@ -88,11 +88,11 @@ const ExperienceSection = () => {
                     relative
                     flex-1
                     overflow-hidden
-                    rounded-3xl
+                    rounded-2xl md:rounded-3xl
                     border
                     border-white/10
                     bg-white/[0.03]
-                    p-8
+                    p-5 sm:p-6 md:p-8
                     backdrop-blur-xl
                     transition-all
                     duration-500
@@ -104,19 +104,19 @@ const ExperienceSection = () => {
                   <div className="experience-card-glow right-to-left absolute inset-0 bg-gradient-to-br from-neon-primary/[0.03] via-transparent to-transparent  transition-opacity duration-500 group-hover:opacity-100" />
 
                   <div className="experience-card-content relative z-10">
-                    <p className="experience-duration mb-3 text-sm uppercase tracking-[0.25em] text-neon-primary/70">
+                    <p className="experience-duration mb-3 text-xs uppercase tracking-[0.18em] text-neon-primary/70 sm:text-sm sm:tracking-[0.25em]">
                       {item.duration}
                     </p>
 
-                    <h3 className="experience-role text-3xl font-bold text-white">
+                    <h3 className="experience-role text-2xl font-bold text-white md:text-3xl">
                       {item.role}
                     </h3>
 
-                    <h4 className="experience-company mt-2 text-lg text-white/60">
+                    <h4 className="experience-company mt-2 text-base text-white/60 md:text-lg">
                       {item.company}
                     </h4>
 
-                    <p className="experience-description mt-6 max-w-2xl text-base leading-relaxed text-white/70">
+                    <p className="experience-description mt-5 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base md:mt-6">
                       {item.description}
                     </p>
                   </div>

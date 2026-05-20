@@ -10,7 +10,7 @@ const Navbar = () => {
     { name: "Projects", id: "projects" },
     { name: "Research", id: "research" },
     { name: "Education", id: "education" },
-    { name: "Contact", id: "contact" },
+    { name: "Works", id: "website-works" },
   ];
 
   // Smooth Scroll Function
@@ -28,18 +28,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar fixed top-0 z-50 h-[10vh] w-full border-b border-bg-surface bg-bg-main/90 backdrop-blur-md">
+    <nav className="navbar fixed top-0 z-50 w-full border-b border-bg-surface bg-bg-main/90 backdrop-blur-md">
 
-      <div className="navbar-container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="navbar-container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        <div className="navbar-wrapper flex h-20 items-center justify-between">
+        <div className="navbar-wrapper flex h-16 items-center justify-between md:h-20">
 
           {/* Logo */}
           <div className="navbar-logo-wrapper flex-shrink-0">
 
             <button
               onClick={() => handleScroll("hero")}
-              className="navbar-logo text-3xl font-extrabold tracking-tighter text-text-bright"
+              className="navbar-logo text-2xl font-extrabold tracking-tighter text-text-bright sm:text-3xl"
             >
               Ezaz<span className="text-neon-primary">.</span>
             </button>
@@ -48,13 +48,13 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="navbar-desktop hidden md:block">
 
-            <div className="navbar-links ml-10 flex items-center space-x-8">
+            <div className="navbar-links ml-6 flex items-center space-x-3 lg:ml-10 lg:space-x-6">
 
               {navLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleScroll(link.id)}
-                  className="navbar-link text-sm font-medium text-text-muted transition-colors duration-300 hover:text-neon-primary"
+                  className="navbar-link text-xs font-medium text-text-muted transition-colors duration-300 hover:text-neon-primary lg:text-sm"
                 >
                   {link.name}
                 </button>

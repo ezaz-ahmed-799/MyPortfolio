@@ -48,7 +48,7 @@ const SkillRow = ({
   reverse?: boolean;
 }) => {
   return (
-    <div className="relative flex overflow-hidden py-4">
+    <div className="relative flex overflow-hidden py-3 sm:py-4">
       <div
         className={`flex min-w-max gap-5 animate-marquee ${
           reverse ? "animate-marquee-reverse" : ""
@@ -66,7 +66,7 @@ const SkillRow = ({
                 rounded-full
                 border border-lime-400/20
                 bg-white/[0.03]
-                px-6 py-3
+                px-4 py-2.5 sm:px-6 sm:py-3
                 backdrop-blur-md
                 transition-all duration-300
                 hover:-translate-y-1
@@ -78,7 +78,7 @@ const SkillRow = ({
                 <Icon className="text-[1.1rem] text-lime-300 transition-transform duration-300 group-hover:scale-110" />
               )}
 
-              <span className="whitespace-nowrap text-sm font-medium tracking-wide text-white/90">
+              <span className="whitespace-nowrap text-xs font-medium tracking-wide text-white/90 sm:text-sm">
                 {skill.name}
               </span>
             </div>
@@ -97,7 +97,7 @@ const Marquee = () => {
         overflow-hidden
         border-y border-white/5
         bg-black
-        py-16
+        py-12 sm:py-16
       "
     >
       {/* Background Glow */}
@@ -110,17 +110,17 @@ const Marquee = () => {
       />
 
       {/* Left Fade */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-black to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-black to-transparent sm:w-32" />
 
       {/* Right Fade */}
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-black to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-black to-transparent sm:w-32" />
 
-      <div className="relative z-20 mb-8 text-center">
-        <p className="mb-3 text-xs uppercase tracking-[0.3em] text-lime-300/70">
+      <div className="relative z-20 mb-6 px-5 text-center sm:mb-8">
+        <p className="mb-3 text-xs uppercase tracking-[0.24em] text-lime-300/70 sm:tracking-[0.3em]">
           Tech Arsenal
         </p>
 
-        <h2 className="text-3xl font-bold text-white md:text-4xl">
+        <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
           Technologies I Work With
         </h2>
       </div>
