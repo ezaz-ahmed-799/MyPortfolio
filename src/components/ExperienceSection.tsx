@@ -26,14 +26,6 @@ const experiences = [
       "Completed intensive enterprise training focused on React, Java Spring Boot, and modern full stack development practices while gaining exposure to professional coding standards, collaborative workflows, and industry-grade software engineering methodologies.",
   },
 
-  {
-    year: "2025",
-    role: "MS CS Admit",
-    company: "University of Louisville",
-    duration: "R1 Research Institution",
-    description:
-      "Admitted to the MS in Computer Science program with International Resident Tuition Grant, recognizing academic and research potential. (Didn't join due to personal reasons)",
-  },
 ];
 
 const ExperienceSection = () => {
